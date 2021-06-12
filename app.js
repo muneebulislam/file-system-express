@@ -24,8 +24,9 @@ app.get('/', function(req, res){
 
 app.post('/', function(req, res){
     const data1 = req.body.your_name;
-    const data2 = Date.now();
-    const data = data1 + data2.toString()+"\n";
+    const now = Date.now();
+    const date = new Date(now);
+    const data = data1 +"\t\t\t"+ date+"\n";
     fs.appendFile(path.join(__dirname, 'myFile.txt'), data,(err)=> {
         if (err) {throw err};
     });
